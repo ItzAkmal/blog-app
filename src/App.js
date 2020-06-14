@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import NavBar from './components/NavBar/NavBar'
+import BlogList from './components/BlogList/BlogList'
+import BlogForm from './components/BlogForm/BlogForm'
+import BlogDetails from './components/BlogDetails/BlogDetails'
+import BlogContextProvider from './contexts/BlogContext'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<BlogContextProvider>
+			<Router>
+				<div className='App'>
+					<NavBar />
+					<Switch>
+						<Route exact path='/' component={BlogList} />
+						<Route path='/addblog' component={BlogForm} />
+						<Route path='/blogs/:id' component={BlogDetails} />
+					</Switch>
+				</div>
+			</Router>
+		</BlogContextProvider>
+	)
 }
 
-export default App;
+export default App
