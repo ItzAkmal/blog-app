@@ -8,18 +8,18 @@ import BlogContextProvider from './contexts/BlogContext'
 
 function App() {
 	return (
-		<BlogContextProvider>
-			<Router>
-				<div className='App'>
+		<div className='App bg-secondary'>
+			<BlogContextProvider>
+				<Router>
 					<NavBar />
 					<Switch>
 						<Route exact path='/' component={BlogList} />
 						<Route path='/addblog' component={BlogForm} />
 						<Route path='/blogs/:id' component={BlogDetails} />
 					</Switch>
-				</div>
-			</Router>
-		</BlogContextProvider>
+				</Router>
+			</BlogContextProvider>
+		</div>
 	)
 }
 
