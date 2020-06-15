@@ -12,11 +12,13 @@ const BlogList = () => {
 				const content = blog.content.slice(0, 200)
 				const link = '/blogs/' + blog.id
 				return (
-					<div class='card col s12 m5 offset-m1 center-align indigo lighten-2 white-text'>
-						<div class='card-title'>{blog.title}</div>
-						<div class='card-content'>{content}...</div>
+					<div
+						className='card col s12 m5 offset-m1 center-align indigo lighten-2 white-text'
+						key={blog.id}>
+						<div className='card-title'>{blog.title}</div>
+						<div className='card-content'>{content}...</div>
 						<div className='card-action'>
-							<Link to={link} class='btn teal darken-1'>
+							<Link to={link} className='btn teal darken-1'>
 								Read more..
 							</Link>
 						</div>
