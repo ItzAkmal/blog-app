@@ -13,6 +13,14 @@ const BlogContextProvider = (props) => {
 		setBlogs(newBlogs)
 	}
 
+	const deleteBlog = (id) => {
+		const blog = blogs.filter((blog) => {
+			return blog.id !== id
+		})
+
+		setBlogs(blog)
+	}
+
 	const getBlog = (id) => {
 		const blog = blogs.filter((blog) => {
 			return blog.id === id
@@ -26,7 +34,7 @@ const BlogContextProvider = (props) => {
 	}, [blogs])
 
 	return (
-		<BlogContext.Provider value={{ blogs, addBlog, getBlog }}>
+		<BlogContext.Provider value={{ blogs, addBlog, getBlog, deleteBlog }}>
 			{props.children}
 		</BlogContext.Provider>
 	)
